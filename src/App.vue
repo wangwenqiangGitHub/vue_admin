@@ -1,5 +1,7 @@
 <script setup lang="ts">
-console.log(import.meta.env.VITE_API_URL)
+import helper from './types/helper'
+// console.log(import.meta.env.VITE_API_URL)
+console.log(typeof helper.env.VITE_SOME_KEY)
 </script>
 <template>
   <ul class="bg-red-50">
