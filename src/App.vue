@@ -1,5 +1,5 @@
 <script setup lang="ts">
-console.log(typeof import.meta.env.VITE_SOME_KEY)
+console.log(import.meta.env.VITE_API_URL)
 </script>
 <template>
   <ul class="bg-red-50">
