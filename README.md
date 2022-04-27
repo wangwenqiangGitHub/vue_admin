@@ -16,32 +16,41 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
 
 # learn vue
+
 - 代码架构
 - public 公共数据
-- src源代码   
-    - assets  静态文件 
-    - components 组件 
+- src 源代码
+  - assets 静态文件
+  - components 组件
 - App.vue 根组件
-- env.d.ts   ts的声明文件
+- env.d.ts ts 的声明文件
 - main.ts 入口文件
--  index.html  模版文件
--  package.json 包管理的配置文件
--  tsconfig.json ts的配置文件
-- vite打包工具的配置文件
--  yarn文件的锁定文件
+- index.html 模版文件
+- package.json 包管理的配置文件
+- tsconfig.json ts 的配置文件
+- vite 打包工具的配置文件
+- yarn 文件的锁定文件
 
 # TypeScript
-JavaScript的超集
-解决JavaScript弱类型的弊端
 
-App.vue是根组件，相当于html中的body
+JavaScript 的超集解决 JavaScript 弱类型的弊端
+
+App.vue 是根组件，相当于 html 中的 body
 
 # 安装插件
+
 yarn add -D path
+
 # 使用的包需要有类型声明,类型声明，有更好的类型声明。
+
 yarn add -d @types/node
 
-# javascript 是弱类型 typescript是强类型
-- 通过as 做类型断言
-- js  传递参数，带一个大括号表示参数类型为一个对象
+# javascript 是弱类型 typescript 是强类型
 
+- 通过 as 做类型断言
+- js 传递参数，带一个大括号表示参数类型为一个对象
+
+# ts 可以支持更好的代码提示功能
+
+- yarn add -D @types/node
+- yarn add -D @types/lodash
