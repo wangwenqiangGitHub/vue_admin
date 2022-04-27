@@ -10,6 +10,7 @@ export default ({ command, mode }: ConfigEnv) => {
   console.log(isBuild)
   const root = process.cwd()
   const env = parseEnv(loadEnv(mode, root))
+  console.log(env.VITE_API_URL)
 
   return {
     plugins: setupPlugins(isBuild, env),

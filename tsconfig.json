@@ -23,6 +23,7 @@
     "src/**/*.vue",
     "vite.config.ts",
     "vite/**/.*.ts",
-    "mock/*.ts",
+    "mock/**/*.ts",
+    "types/**/*.d.ts",
   ],
 }
