@@ -55,6 +55,7 @@ yarn add -d @types/node
 - yarn add -D @types/node
 - yarn add -D @types/lodash
 - Tailwind官网安装
+- mock.js
 # vscode 插件
 - vim vscode 插件中平滑移动
 ```shell
