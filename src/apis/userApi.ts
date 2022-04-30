@@ -11,7 +11,13 @@ function info() {
     url: 'info',
   })
 }
-
-function login() {}
+interface LoginInterface {
+  token: string
+}
+function login() {
+  return http.requst<LoginInterface>({
+    url: 'login',
+  })
+}
 
 export default { info, login }
