@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import helper from './types/helper'
 // console.log(import.meta.env.VITE_API_URL)
-console.log(typeof helper.env.VITE_SOME_KEY)
+// console.log(typeof helper.env.VITE_SOME_KEY)
+import userApi from './apis/userApi'
+
+const response = await userApi.info()
+console.log(response.result.avatar)
+// const respose = await fetch(`http://localhost:3000/api/info`).then((r) => r.json())
+// console.log(respose.data.name)
 </script>
 <template>
   <ul class="bg-red-50">

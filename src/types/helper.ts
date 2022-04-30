@@ -8,7 +8,7 @@ export default new (class {
     // 声明为any类型，防止返回值报错
     const envs: any = _.cloneDeep(import.meta.env)
 
-    Object.entries(import.meta.env).forEach(([key, value]) => {
+    Object.entries(import.meta.env as Record<string, any>).forEach(([key, value]) => {
       if (value == 'true' || value == 'false') {
         envs[key] = value == 'true' ? true : false
       } else if (/^\d+$/.test(value)) envs[key] = Number(value)

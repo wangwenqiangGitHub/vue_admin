@@ -54,13 +54,18 @@ yarn add -d @types/node
 
 - yarn add -D @types/node
 - yarn add -D @types/lodash
-- Tailwind官网安装
+- Tailwind 官网安装
+- 解决请求数据没有类型支持 安装 axios
 - mock.js
+
 # vscode 插件
+
 - vim vscode 插件中平滑移动
+
 ```shell
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 ```
-- tailwindcss 插件实现tailwindcss补全
 
+- tailwindcss 插件实现 tailwindcss 补全
 
+lesson - 优化处理 promise
