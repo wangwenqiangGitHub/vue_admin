@@ -57,6 +57,7 @@ yarn add -d @types/node
 - Tailwind 官网安装
 - 解决请求数据没有类型支持 安装 axios
 - mock.js
+- sass 插件，使用@apply 复用样式
 
 # vscode 插件
 
