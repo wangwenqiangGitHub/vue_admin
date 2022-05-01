@@ -68,5 +68,5 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 ```
 
 - tailwindcss 插件实现 tailwindcss 补全
+- tailwindcss 有一些组件库可以直接使用
 
-lesson - 优化处理 promise
