@@ -1,6 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { reactive } from 'vue'
+const form = reactive({
+  account: 'abc',
+  password: '',
+})
+</script>
 
 <template>
+  <!-- {{ form }} -->
   <div class="bg-slate-300 h-screen flex justify-center items-start md:items-center p-5">
     <div class="w-[720px] translate-y-32 md:translate-y-0 bg-white grid md:grid-cols-2 rounded-md shadow-md">
       <div class="p-6">
@@ -8,8 +15,8 @@
         <div class="mt-8">
           <!-- <input type="text" placeholder="请输入手机号或邮箱" class="hd-input mt-3" />
           <input type="text" placeholder="请输入手机号或邮箱" class="hd-input mt-3" /> -->
-          <hdInput />
-          <hdInput class="mt-5" />
+          <hdInput v-model="form.account" placeholder="请输入邮箱或手机号" />
+          <hdInput class="mt-5" placeholder="请输入登录密码" />
         </div>
         <!-- <button class="hd-button mt-5">登录</button> -->
         <hdButton />
