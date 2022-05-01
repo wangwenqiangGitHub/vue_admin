@@ -1,8 +1,4 @@
-<script setup lang="ts">
-import hdInput from '@/components/form/hd-input.vue'
-import HdButton from '../../components/form/hd-button.vue'
-import HdLink from '../../components/form/hd-link.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="bg-slate-300 h-screen flex justify-center items-start md:items-center p-5">
@@ -16,10 +12,10 @@ import HdLink from '../../components/form/hd-link.vue'
           <hdInput class="mt-5" />
         </div>
         <!-- <button class="hd-button mt-5">登录</button> -->
-        <HdButton />
+        <hdButton />
         <div class="flex gap-2 justify-center mt-5">
           <!-- <a href class="text-sm">网站首页</a> -->
-          <HdLink />
+          <hdLink />
           <a href class="text-sm">会员注册</a>
           <a href class="text-sm">找回密码</a>
         </div>
