@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="bg-slate-300 h-screen flex justify-center items-center">
-    <div class="w-[720px] bg-white grid grid-cols-2 rounded-md shadow-md">
+  <div class="bg-slate-300 h-screen flex justify-center items-start md:items-center p-5">
+    <div class="w-[720px] translate-y-32 md:translate-y-0 bg-white grid md:grid-cols-2 rounded-md shadow-md">
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg">会员登录</h2>
         <div class="mt-8">
@@ -16,7 +16,7 @@
           <a href class="text-sm">找回密码</a>
         </div>
       </div>
-      <div>
+      <div class="hidden md:block">
         <img src="/images/login.jpg" class="h-96 w-full object-cover" />
       </div>
     </div>
