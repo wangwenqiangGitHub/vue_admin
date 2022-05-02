@@ -1,29 +1,30 @@
 <script setup lang="ts">
-import { Form, Field, ErrorMessage, defineRule, configure, useField, useForm } from 'vee-validate'
-import { ref } from 'vue'
-import { required, min, max, confirmed, email } from '@vee-validate/rules'
-import { localize } from '@vee-validate/i18n'
-import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
-import * as yup from 'yup'
+import v from '@/plugins/validate'
+// import { Form, Field, ErrorMessage, defineRule, configure, useField, useForm } from 'vee-validate'
+// import { ref } from 'vue'
+// import { required, min, max, confirmed, email } from '@vee-validate/rules'
+// import { localize } from '@vee-validate/i18n'
+// import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
+// import * as yup from 'yup'
 // yup通过链式操作进行表单验证，更加灵活
 
-defineRule('required', required)
-defineRule('email', email)
-configure({
-  generateMessage: localize('zh_CN', zh_CN),
-})
-const { handleSubmit, errors } = useForm({
+// defineRule('required', required)
+// defineRule('email', email)
+// configure({
+//   generateMessage: localize('zh_CN', zh_CN),
+// })
+const { handleSubmit, errors } = v.useForm({
   initialValues: {
     username: 'yeezy',
     password: '',
   },
   validationSchema: {
-    username: yup.string().required('用户名不能为空').email('邮箱格式错误'),
+    username: v.yup.string().required().email().label('账号'),
     password: { required: true },
   },
 })
-const { value: usernameValue } = useField('username', {}, { label: '用户名' })
-const { value: passwordValue } = useField('password', {}, { label: '密码' })
+const { value: usernameValue } = v.useField('username', {}, { label: '用户名' })
+const { value: passwordValue } = v.useField('password', {}, { label: '密码' })
 
 const onSubmit = handleSubmit((values) => {
   console.log(values)
@@ -45,7 +46,7 @@ const onSubmit = handleSubmit((values) => {
   </form>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 div {
   @apply flex w-screen h-screen justify-center items-center bg-green-200;
   input {
