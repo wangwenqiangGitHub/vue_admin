@@ -58,6 +58,7 @@ yarn add -d @types/node
 - 解决请求数据没有类型支持 安装 axios
 - mock.js
 - sass 插件，使用@apply 复用样式
+- yarn add vee-validate@next @vee-validate/rules yup @vee-validate/i18n
 
 # vscode 插件
 
@@ -69,4 +70,3 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 - tailwindcss 插件实现 tailwindcss 补全
 - tailwindcss 有一些组件库可以直接使用
-
