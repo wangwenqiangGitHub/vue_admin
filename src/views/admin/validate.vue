@@ -4,6 +4,9 @@ import { ref } from 'vue'
 import { required, min, max, confirmed, email } from '@vee-validate/rules'
 import { localize } from '@vee-validate/i18n'
 import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
+import * as yup from 'yup'
+// yup通过链式操作进行表单验证，更加灵活
+
 defineRule('required', required)
 defineRule('email', email)
 configure({
@@ -15,7 +18,7 @@ const { handleSubmit, errors } = useForm({
     password: '',
   },
   validationSchema: {
-    username: { required: true, email: true },
+    username: yup.string().required('用户名不能为空').email('邮箱格式错误'),
     password: { required: true },
   },
 })
