@@ -9,12 +9,18 @@ defineRule('email', email)
 configure({
   generateMessage: localize('zh_CN', zh_CN),
 })
-const { handleSubmit, errors } = useForm()
-const { errorMessage: usernameError, value: usernameValue } = useField(
-  'username',
-  { required: true, email: true },
-  { label: '用户名' },
-)
+const { handleSubmit, errors } = useForm({
+  initialValues: {
+    username: 'yeezy',
+    password: '',
+  },
+  validationSchema: {
+    username: { required: true, email: true },
+    password: { required: true },
+  },
+})
+const { value: usernameValue } = useField('username', {}, { label: '用户名' })
+const { value: passwordValue } = useField('password', {}, { label: '密码' })
 
 const onSubmit = handleSubmit((values) => {
   console.log(values)
@@ -24,8 +30,14 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form @submit="onSubmit">
-    <input type="text" v-model="usernameValue" />
-    <p>{{ errors.username }}</p>
+    <section>
+      <input type="text" v-model="usernameValue" />
+      <p class="error" v-if="errors.username">{{ errors.username }}</p>
+    </section>
+    <section>
+      <input type="text" v-model="passwordValue" />
+      <p class="error" v-if="errors.password">{{ errors.password }}</p>
+    </section>
     <button>提交</button>
   </form>
 </template>
@@ -34,10 +46,13 @@ const onSubmit = handleSubmit((values) => {
 div {
   @apply flex w-screen h-screen justify-center items-center bg-green-200;
   input {
-    @apply border p-2 rounded-md border-violet-500 outline-none;
+    @apply border-4 p-2 rounded-md border-violet-500 outline-none;
   }
   button {
     @apply border bg-gray-600 px-4 rounded-md text-white;
+  }
+  .error {
+    @apply bg-red-600 border border-gray-800 p-2 text-white;
   }
 }
 </style>
