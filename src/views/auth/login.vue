@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-const form = reactive({
-  account: 'abc',
-  password: '',
-})
+import v from '@/plugins/validate'
+const { Form, Field, ErrorMessage } = v
+
+const onSubmit = (values) => {
+  console.log(values)
+  alert('33')
+}
 </script>
 
 <template>
   <!-- {{ form }} -->
-  <div class="bg-slate-300 h-screen flex justify-center items-start md:items-center p-5">
+  <Form class="" @submit="onSubmit">
     <div class="w-[720px] translate-y-32 md:translate-y-0 bg-white grid md:grid-cols-2 rounded-md shadow-md">
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg">会员登录</h2>
         <div class="mt-8">
-          <!-- <input type="text" placeholder="请输入手机号或邮箱" class="hd-input mt-3" />
-          <input type="text" placeholder="请输入手机号或邮箱" class="hd-input mt-3" /> -->
-          <hdInput v-model="form.account" placeholder="请输入邮箱或手机号" />
-          <hdInput class="mt-5" placeholder="请输入登录密码" />
+          <Field name="account" :rules="{ required: true, email: true }" class="hd-input" :validate-on-input="true" />
+          <ErrorMessage name="account" as="div" class="hd-error" />
+          <Field name="password" :rules="{ required: true, min: 3 }" class="hd-input mt-3" :validate-on-input="true" />
+          <ErrorMessage name="password" as="div" class="hd-error" />
         </div>
         <!-- <button class="hd-button mt-5">登录</button> -->
         <hdButton />
@@ -31,14 +33,11 @@ const form = reactive({
         <img src="/images/login.jpg" class="h-96 w-full object-cover" />
       </div>
     </div>
-  </div>
+  </Form>
 </template>
 
 <style lang="scss">
-// .hd-input {
-//   @apply border w-full rounded-sm py-1 px-2 outline-none border-gray-200 placeholder:text-sm focus:ring-2 ring-offset-2 ring-offset-violet-600 duration-300 focus:border-white;
-// }
-// .hd-button {
-//   @apply bg-indigo-500 text-white w-full py-2 rounded-md mt-3 hover:bg-violet-500 duration-300;
-// }
+form {
+  @apply bg-slate-300 h-screen flex justify-center items-start md:items-center p-5;
+}
 </style>
