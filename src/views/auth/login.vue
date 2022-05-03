@@ -1,23 +1,39 @@
 <script setup lang="ts">
 import v from '@/plugins/validate'
+
 const { Form, Field, ErrorMessage } = v
 
 const onSubmit = (values) => {
   console.log(values)
   alert('33')
 }
+
+// const schema = v.yup.object({
+//   account: v.yup.string().required().email().label('账号'),
+//   password: v.yup.string().required().min(3).label('密码'),
+// })
+
+const schema = {
+  account: { required: true, email: true },
+  password: { required: true, min: 3 },
+}
 </script>
 
 <template>
-  <!-- {{ form }} -->
-  <Form class="" @submit="onSubmit">
+  <Form class="" @submit="onSubmit" :validation-schema="schema" #default="{ errors }">
     <div class="w-[720px] translate-y-32 md:translate-y-0 bg-white grid md:grid-cols-2 rounded-md shadow-md">
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg">会员登录</h2>
         <div class="mt-8">
-          <Field name="account" :rules="{ required: true, email: true }" class="hd-input" :validate-on-input="true" />
-          <ErrorMessage name="account" as="div" class="hd-error" />
-          <Field name="password" :rules="{ required: true, min: 3 }" class="hd-input mt-3" :validate-on-input="true" />
+          <Field
+            name="account"
+            class="hd-input"
+            :validate-on-input="true"
+            label="账号"
+            placeholder="请输入邮箱或者手机号" />
+          <div v-if="errors.account" class="hd-error">请输入邮箱或者手机号</div>
+          <!-- <ErrorMessage name="account" as="div" class="hd-error" /> -->
+          <Field name="password" class="hd-input mt-3" :validate-on-input="true" label="密码" type="password" />
           <ErrorMessage name="password" as="div" class="hd-error" />
         </div>
         <!-- <button class="hd-button mt-5">登录</button> -->
