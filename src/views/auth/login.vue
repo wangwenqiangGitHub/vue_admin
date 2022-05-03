@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import userApi from '@/apis/userApi'
 import v from '@/plugins/validate'
+import { store } from '@/utils'
 
 const { Form, Field, ErrorMessage } = v
 
-const onSubmit = (values) => {
-  console.log(values)
-  alert('33')
+const onSubmit = async (values) => {
+  const {
+    result: { token },
+  } = await userApi.login(values)
+  console.log(token)
+  store.set('token', {
+    expire: 100,
+    token,
+  })
 }
-
-// const schema = v.yup.object({
-//   account: v.yup.string().required().email().label('账号'),
-//   password: v.yup.string().required().min(3).label('密码'),
-// })
 
 const schema = {
   account: { required: true, email: true },
@@ -28,13 +31,20 @@ const schema = {
           <div class="mt-8">
             <Field
               name="account"
+              value="www@www.com"
               class="hd-input"
               :validate-on-input="true"
               label="账号"
               placeholder="请输入邮箱或者手机号" />
             <div v-if="errors.account" class="hd-error">请输入邮箱或者手机号</div>
             <!-- <ErrorMessage name="account" as="div" class="hd-error" /> -->
-            <Field name="password" class="hd-input mt-3" :validate-on-input="true" label="密码" type="password" />
+            <Field
+              name="password"
+              value="admin"
+              class="hd-input mt-3"
+              :validate-on-input="true"
+              label="密码"
+              type="password" />
             <ErrorMessage name="password" as="div" class="hd-error" />
           </div>
           <hdButton />

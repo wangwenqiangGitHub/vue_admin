@@ -14,9 +14,10 @@ function info() {
 interface LoginInterface {
   token: string
 }
-function login() {
+function login(data: any) {
   return http.requst<LoginInterface>({
     url: 'login',
+    method: 'post',
   })
 }
 
